@@ -78,6 +78,10 @@ const templates = [
   }
 ];
 
+function escapeHtml(str) {
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
 function renderTemplates() {
   const grid = document.getElementById('template-grid');
 
@@ -87,16 +91,16 @@ function renderTemplates() {
 
     card.innerHTML = `
       <div class="card-img-wrap">
-        <img src="${t.screenshot}" alt="${t.name} template preview" loading="lazy" />
+        <img src="${t.screenshot}" alt="${escapeHtml(t.name)} template preview" loading="lazy" />
         ${!t.available ? '<span class="badge">Coming Soon</span>' : ''}
       </div>
       <div class="card-body">
-        <h3 class="card-title">${t.name}</h3>
-        <p class="card-desc">${t.description}</p>
+        <h3 class="card-title">${escapeHtml(t.name)}</h3>
+        <p class="card-desc">${escapeHtml(t.description)}</p>
         <a
           href="${t.link}"
-          class="btn btn-outline ${!t.available ? 'disabled' : ''}"
-          ${t.available ? 'target="_blank" rel="noopener"' : 'aria-disabled="true"'}
+          class="btn btn-outline${!t.available ? ' disabled' : ''}"
+          ${t.available ? 'target="_blank" rel="noopener"' : 'aria-disabled="true" tabindex="-1"'}
         >
           View Full Site &rarr;
         </a>
