@@ -7,6 +7,7 @@
   --surface:      #13162A;
   --accent:       #C084FC;
   --accent-glow:  rgba(192, 132, 252, 0.25);
+  --accent-glow-subtle: rgba(192, 132, 252, 0.12);
   --text:         #F1F5F9;
   --text-muted:   #94A3B8;
   --radius:       12px;
@@ -36,7 +37,7 @@ a { color: inherit; text-decoration: none; }
   justify-content: center;
   text-align: center;
   padding: 2rem;
-  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(192,132,252,0.12), transparent);
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, var(--accent-glow-subtle), transparent);
 }
 
 .hero-content {
@@ -94,4 +95,10 @@ a { color: inherit; text-decoration: none; }
   background: #d8a4ff;
   transform: translateY(-2px);
   box-shadow: 0 8px 30px var(--accent-glow);
+}
+
+.btn-primary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px var(--accent-glow);
 }
