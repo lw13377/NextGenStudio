@@ -114,3 +114,44 @@ const observer = new IntersectionObserver(
 );
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ── Tab switching ──
+(function () {
+  const tabs = document.querySelectorAll('.nav-tab');
+  const panels = document.querySelectorAll('.tab-panel');
+  const hero = document.getElementById('hero');
+  const navLogo = document.querySelector('.nav-logo');
+
+  function switchTab(tabName) {
+    tabs.forEach(t => {
+      const active = t.dataset.tab === tabName;
+      t.classList.toggle('active', active);
+      t.setAttribute('aria-selected', String(active));
+    });
+
+    panels.forEach(p => {
+      p.classList.toggle('active', p.id === 'tab-' + tabName);
+    });
+
+    // Hero only visible on templates tab
+    if (hero) {
+      hero.style.display = tabName === 'templates' ? '' : 'none';
+    }
+
+    // Re-run observer for newly visible fade-in elements
+    document.querySelectorAll('#tab-' + tabName + ' .fade-in:not(.visible)').forEach(el => {
+      observer.observe(el);
+    });
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => switchTab(tab.dataset.tab));
+  });
+
+  if (navLogo) {
+    navLogo.addEventListener('click', e => {
+      e.preventDefault();
+      switchTab('templates');
+    });
+  }
+})();

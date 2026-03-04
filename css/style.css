@@ -370,3 +370,305 @@ body::before {
 
   .footer-heading { letter-spacing: -0.02em; }
 }
+
+/* ── Background scene ── */
+.bg-scene {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.bg-trails {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bg-glow {
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 560px;
+  height: 560px;
+  background: radial-gradient(circle, rgba(139,92,246,0.32) 0%, rgba(109,40,217,0.12) 40%, transparent 70%);
+  filter: blur(70px);
+  pointer-events: none;
+}
+
+.bg-beam {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 82%;
+  background: linear-gradient(to top, rgba(192,132,252,0.7), rgba(192,132,252,0.15) 55%, transparent);
+  filter: blur(5px);
+  pointer-events: none;
+}
+
+/* ── Layer fixes ── */
+body {
+  background: transparent;
+}
+
+body::before {
+  z-index: 50;
+}
+
+/* ── Navbar ── */
+.navbar {
+  position: fixed;
+  top: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 0.6rem 0.75rem 0.6rem 1.5rem;
+  background: rgba(7, 8, 18, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 999px;
+  width: min(780px, calc(100% - 2rem));
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.nav-logo:hover { opacity: 0.8; }
+
+.nav-tabs {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.nav-tab {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-tab:hover {
+  color: var(--text);
+  background: rgba(255,255,255,0.05);
+}
+
+.nav-tab.active {
+  background: rgba(192,132,252,0.14);
+  color: var(--accent);
+}
+
+/* ── Page content wrapper ── */
+.page-content {
+  position: relative;
+  z-index: 1;
+  padding-top: 5.5rem;
+}
+
+/* ── Tab panels ── */
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+/* Contact tab needs flex */
+#tab-contact.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  padding: 4rem 2rem;
+}
+
+/* ── Hero override (shorter, no CTA button) ── */
+#hero {
+  min-height: 58vh;
+}
+
+/* ── Templates panel inherits existing #templates styles via grid ── */
+#tab-templates {
+  padding: 1rem 2.5rem 6rem;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+/* ── Information section ── */
+#tab-info {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5rem 2rem 8rem;
+}
+
+.info-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+}
+
+.info-hero-block {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.info-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 1.1rem;
+  display: block;
+}
+
+.info-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+}
+
+.info-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.info-desc {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.72;
+}
+
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.info-card {
+  background: rgba(13, 16, 40, 0.6);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius);
+  padding: 2rem 2rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.info-card:hover {
+  border-color: rgba(192,132,252,0.22);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+}
+
+.info-icon {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  background: rgba(192,132,252,0.1);
+  border: 1px solid rgba(192,132,252,0.22);
+  border-radius: 6px;
+  padding: 0.28rem 0.6rem;
+  display: inline-block;
+  width: fit-content;
+}
+
+.info-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.info-card p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.68;
+}
+
+/* ── Contact panel ── */
+.contact-inner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+  max-width: 600px;
+}
+
+.contact-desc {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+/* ── Site footer ── */
+.site-footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 1.75rem 2rem;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  font-size: 0.76rem;
+  color: rgba(148,163,184,0.35);
+  letter-spacing: 0.025em;
+}
+
+/* ── Responsive navbar + info ── */
+@media (max-width: 768px) {
+  .navbar {
+    border-radius: 1.25rem;
+    padding: 0.75rem 1rem;
+    flex-direction: column;
+    gap: 0.75rem;
+    top: 0.75rem;
+    align-items: center;
+  }
+
+  .nav-tabs { gap: 0.15rem; }
+
+  .nav-tab {
+    padding: 0.4rem 0.85rem;
+    font-size: 0.82rem;
+  }
+
+  .page-content { padding-top: 8.5rem; }
+
+  .info-cards { grid-template-columns: 1fr; }
+
+  #tab-templates { padding: 1rem 1.25rem 5rem; }
+}

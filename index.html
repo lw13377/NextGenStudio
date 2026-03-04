@@ -10,29 +10,130 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <section id="hero" aria-label="Hero">
-    <div class="hero-content">
-      <div class="hero-badge">Web Studio</div>
-      <h1 class="hero-title">NextGenLab<span class="accent">.</span>studio</h1>
-      <p class="hero-sub">Modern websites, built for the next generation.</p>
-      <a href="#templates" class="btn btn-primary">Browse Templates</a>
+
+  <!-- ── Background scene (Sedai-inspired light trails) ── -->
+  <div class="bg-scene" aria-hidden="true">
+    <svg class="bg-trails" viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <!-- Lines radiating from vanishing point (720, 870) -->
+      <line x1="720" y1="870" x2="0"    y2="0"   stroke="white" stroke-opacity="0.055" stroke-width="0.8"/>
+      <line x1="720" y1="870" x2="90"   y2="0"   stroke="white" stroke-opacity="0.035" stroke-width="0.7"/>
+      <line x1="720" y1="870" x2="190"  y2="0"   stroke="white" stroke-opacity="0.05"  stroke-width="0.8"/>
+      <line x1="720" y1="870" x2="300"  y2="0"   stroke="white" stroke-opacity="0.03"  stroke-width="0.6"/>
+      <line x1="720" y1="870" x2="400"  y2="0"   stroke="white" stroke-opacity="0.065" stroke-width="0.9"/>
+      <line x1="720" y1="870" x2="490"  y2="0"   stroke="white" stroke-opacity="0.04"  stroke-width="0.7"/>
+      <line x1="720" y1="870" x2="580"  y2="0"   stroke="white" stroke-opacity="0.055" stroke-width="0.8"/>
+      <line x1="720" y1="870" x2="650"  y2="0"   stroke="white" stroke-opacity="0.03"  stroke-width="0.6"/>
+      <line x1="720" y1="870" x2="720"  y2="0"   stroke="white" stroke-opacity="0.09"  stroke-width="1.1"/>
+      <line x1="720" y1="870" x2="790"  y2="0"   stroke="white" stroke-opacity="0.03"  stroke-width="0.6"/>
+      <line x1="720" y1="870" x2="860"  y2="0"   stroke="white" stroke-opacity="0.055" stroke-width="0.8"/>
+      <line x1="720" y1="870" x2="950"  y2="0"   stroke="white" stroke-opacity="0.04"  stroke-width="0.7"/>
+      <line x1="720" y1="870" x2="1040" y2="0"   stroke="white" stroke-opacity="0.065" stroke-width="0.9"/>
+      <line x1="720" y1="870" x2="1140" y2="0"   stroke="white" stroke-opacity="0.03"  stroke-width="0.6"/>
+      <line x1="720" y1="870" x2="1250" y2="0"   stroke="white" stroke-opacity="0.05"  stroke-width="0.8"/>
+      <line x1="720" y1="870" x2="1350" y2="0"   stroke="white" stroke-opacity="0.035" stroke-width="0.7"/>
+      <line x1="720" y1="870" x2="1440" y2="0"   stroke="white" stroke-opacity="0.055" stroke-width="0.8"/>
+      <!-- Left edge -->
+      <line x1="720" y1="870" x2="0"    y2="80"  stroke="white" stroke-opacity="0.045" stroke-width="0.7"/>
+      <line x1="720" y1="870" x2="0"    y2="200" stroke="white" stroke-opacity="0.03"  stroke-width="0.6"/>
+      <line x1="720" y1="870" x2="0"    y2="350" stroke="white" stroke-opacity="0.055" stroke-width="0.8"/>
+      <line x1="720" y1="870" x2="0"    y2="500" stroke="white" stroke-opacity="0.04"  stroke-width="0.7"/>
+      <line x1="720" y1="870" x2="0"    y2="650" stroke="white" stroke-opacity="0.05"  stroke-width="0.8"/>
+      <line x1="720" y1="870" x2="0"    y2="800" stroke="white" stroke-opacity="0.035" stroke-width="0.6"/>
+      <!-- Right edge -->
+      <line x1="720" y1="870" x2="1440" y2="80"  stroke="white" stroke-opacity="0.045" stroke-width="0.7"/>
+      <line x1="720" y1="870" x2="1440" y2="200" stroke="white" stroke-opacity="0.03"  stroke-width="0.6"/>
+      <line x1="720" y1="870" x2="1440" y2="350" stroke="white" stroke-opacity="0.055" stroke-width="0.8"/>
+      <line x1="720" y1="870" x2="1440" y2="500" stroke="white" stroke-opacity="0.04"  stroke-width="0.7"/>
+      <line x1="720" y1="870" x2="1440" y2="650" stroke="white" stroke-opacity="0.05"  stroke-width="0.8"/>
+      <line x1="720" y1="870" x2="1440" y2="800" stroke="white" stroke-opacity="0.035" stroke-width="0.6"/>
+    </svg>
+    <div class="bg-glow"></div>
+    <div class="bg-beam"></div>
+  </div>
+
+  <!-- ── Navbar ── -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <a href="#" class="nav-logo" data-tab="templates" aria-label="NextGenLab.studio home">
+      NextGenLab<span class="accent">.</span>studio
+    </a>
+    <div class="nav-tabs" role="tablist" aria-label="Site sections">
+      <button class="nav-tab active" data-tab="templates" role="tab" aria-selected="true" aria-controls="tab-templates">Templates</button>
+      <button class="nav-tab" data-tab="info" role="tab" aria-selected="false" aria-controls="tab-info">Information</button>
+      <button class="nav-tab" data-tab="contact" role="tab" aria-selected="false" aria-controls="tab-contact">Contact</button>
     </div>
-  </section>
-  <main id="templates">
-    <div class="section-header">
-      <h2>Our Templates</h2>
-      <p class="section-sub">Click any template to see it live.</p>
+  </nav>
+
+  <!-- ── Page content ── -->
+  <div class="page-content">
+
+    <!-- Hero (shown only on Templates tab) -->
+    <section id="hero" aria-label="Hero">
+      <div class="hero-content">
+        <div class="hero-badge">Web Studio</div>
+        <h1 class="hero-title">NextGenLab<span class="accent">.</span>studio</h1>
+        <p class="hero-sub">Modern websites, built for the next generation.</p>
+      </div>
+    </section>
+
+    <!-- Templates panel -->
+    <div id="tab-templates" class="tab-panel active" role="tabpanel" aria-labelledby="tab-btn-templates">
+      <div class="section-header">
+        <h2>Our Templates</h2>
+        <p class="section-sub">Click any template to see it live.</p>
+      </div>
+      <div class="grid" id="template-grid"></div>
     </div>
-    <div class="grid" id="template-grid"></div>
-  </main>
-  <footer id="contact">
-    <div class="footer-inner">
-      <p class="footer-tagline">Ready to go live?</p>
-      <h2 class="footer-heading">Let's build something<br /><em>unforgettable.</em></h2>
-      <a href="mailto:your@email.com" class="btn btn-primary">Book a Project</a>
-      <p class="footer-copy">&copy; 2026 NextGenLab.studio &mdash; All rights reserved.</p>
-    </div>
+
+    <!-- Information panel -->
+    <section id="tab-info" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-info">
+      <div class="info-inner">
+        <div class="info-hero-block">
+          <p class="info-label">About NextGenLab.studio</p>
+          <h2 class="info-title">We build personalized websites<br>for <em>your</em> business.</h2>
+          <p class="info-desc">From concept to launch, every site is custom-designed to fit your brand, your audience, and your goals &mdash; delivered fast.</p>
+        </div>
+        <div class="info-cards">
+          <div class="info-card">
+            <div class="info-icon">01</div>
+            <h3>1&ndash;3 Day Delivery</h3>
+            <p>We move fast without cutting corners. Most projects are live within 1 to 3 business days from your first message.</p>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">02</div>
+            <h3>Fully Personalized</h3>
+            <p>No cookie-cutter templates. Every site is designed from scratch to match your brand and stand out in your industry.</p>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">03</div>
+            <h3>Mobile-First Design</h3>
+            <p>Your site looks and performs perfectly on every device &mdash; phone, tablet, and desktop &mdash; right out of the box.</p>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">04</div>
+            <h3>Ready to Launch</h3>
+            <p>We handle hosting, domain connection, and go-live. You get a fully live website, not just a design mockup.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact panel -->
+    <section id="tab-contact" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-contact">
+      <div class="contact-inner">
+        <p class="footer-tagline">Ready to go live?</p>
+        <h2 class="footer-heading">Let&rsquo;s build something<br><em>unforgettable.</em></h2>
+        <p class="contact-desc">Send us a message and we&rsquo;ll get your project started within 24 hours.</p>
+        <a href="mailto:your@email.com" class="btn btn-primary">Book a Project</a>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Slim footer -->
+  <footer class="site-footer">
+    <p>&copy; 2026 NextGenLab.studio &mdash; All rights reserved.</p>
   </footer>
+
   <script src="js/main.js"></script>
 </body>
 </html>
