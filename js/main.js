@@ -1,55 +1,41 @@
 const templates = [
   {
-    name: "AI Website",
-    description: "A sleek, futuristic landing page designed for AI products and SaaS tools.",
-    screenshot: "assets/screenshots/ai-website.png",
-    link: "../AI website/index.html",
-    available: true
-  },
-  {
-    name: "Futuristic",
-    description: "Bold, neon-accented design perfect for tech brands and digital agencies.",
-    screenshot: "assets/screenshots/futuristic.png",
-    link: "../Futuristic/index.html",
+    name: "Photography",
+    description: "A striking portfolio template for photographers — bold imagery, clean galleries, and seamless browsing.",
+    screenshot: "assets/screenshots/photography.png",
+    link: "https://photographer-gules.vercel.app/",
     available: true
   },
   {
     name: "Travel",
-    description: "Stunning travel agency template with immersive imagery and booking sections.",
+    description: "Stunning travel agency template with immersive imagery and destination booking sections.",
     screenshot: "assets/screenshots/travel.png",
     link: "../Travel/index.html",
     available: true
   },
   {
     name: "Bakery",
-    description: "Warm and inviting bakery site with menu, gallery, and contact pages.",
-    screenshot: "assets/screenshots/bakery.png",
-    link: "../bakery/index.html",
+    description: "An elevated bakery experience with refined typography, menu pages, and smooth layouts.",
+    screenshot: "assets/screenshots/bakery-new.png",
+    link: "https://better-bakery.vercel.app/",
     available: true
   },
   {
-    name: "Better Bakery",
-    description: "An elevated bakery experience with refined typography and smooth layouts.",
-    screenshot: "assets/screenshots/betterbakery.png",
-    link: "../betterbakery/index.html",
-    available: true
-  },
-  {
-    name: "Fast Food Pro",
+    name: "Fast Food",
     description: "High-energy fast food template with bold visuals and a modern menu layout.",
     screenshot: "assets/screenshots/fast-food-pro.png",
     link: "../fast_food_pro/index.html",
     available: true
   },
   {
-    name: "Lawyer",
-    description: "Professional and trustworthy law firm site with clean structure and strong CTAs.",
+    name: "Law Firm",
+    description: "Professional and trustworthy law firm site with clean structure and strong calls to action.",
     screenshot: "assets/screenshots/lawyer.png",
     link: "../lawyer/index.html",
     available: true
   },
   {
-    name: "Modern Clothing",
+    name: "Fashion",
     description: "Minimalist fashion e-commerce layout with product grid and lookbook sections.",
     screenshot: "assets/screenshots/modern-clothing.png",
     link: "../modern_clothing/index.html",
@@ -57,24 +43,24 @@ const templates = [
   },
   {
     name: "Nail Salon",
-    description: "Elegant nail salon site with service listings and appointment booking.",
-    screenshot: "assets/screenshots/nail-salon.png",
-    link: "#",
-    available: false
+    description: "Elegant nail salon site with service listings, a gallery, and appointment booking.",
+    screenshot: "assets/screenshots/nail-salon-new.png",
+    link: "https://nail-salon-r6oa1705p-lw13377s-projects.vercel.app/",
+    available: true
   },
   {
-    name: "Restaurant",
-    description: "Full-featured restaurant site with menu, reservations, and atmosphere gallery.",
-    screenshot: "assets/screenshots/restaurant.png",
-    link: "#",
-    available: false
+    name: "Real Estate",
+    description: "Sleek real estate listing site with property search, listings grid, and agent profiles.",
+    screenshot: "assets/screenshots/real-estate.png",
+    link: "https://real-estate-beta-amber.vercel.app/",
+    available: true
   },
   {
-    name: "Child Care",
-    description: "Friendly and reassuring child care center site with enrollment and schedule info.",
-    screenshot: "assets/screenshots/child-care.png",
-    link: "#",
-    available: false
+    name: "Dentist",
+    description: "Clean and welcoming dental practice site with services, team profiles, and booking.",
+    screenshot: "assets/screenshots/dentist.png",
+    link: "https://bright-smile-dental-five.vercel.app/",
+    available: true
   }
 ];
 
