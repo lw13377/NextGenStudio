@@ -77,3 +77,34 @@ const templates = [
     available: false
   }
 ];
+
+function renderTemplates() {
+  const grid = document.getElementById('template-grid');
+
+  templates.forEach(t => {
+    const card = document.createElement('article');
+    card.className = 'card fade-in';
+
+    card.innerHTML = `
+      <div class="card-img-wrap">
+        <img src="${t.screenshot}" alt="${t.name} template preview" loading="lazy" />
+        ${!t.available ? '<span class="badge">Coming Soon</span>' : ''}
+      </div>
+      <div class="card-body">
+        <h3 class="card-title">${t.name}</h3>
+        <p class="card-desc">${t.description}</p>
+        <a
+          href="${t.link}"
+          class="btn btn-outline ${!t.available ? 'disabled' : ''}"
+          ${t.available ? 'target="_blank" rel="noopener"' : 'aria-disabled="true"'}
+        >
+          View Full Site &rarr;
+        </a>
+      </div>
+    `;
+
+    grid.appendChild(card);
+  });
+}
+
+renderTemplates();
