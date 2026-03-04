@@ -155,3 +155,58 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     });
   }
 })();
+
+// ── Custom cursor ──
+(function () {
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+
+  const cursor = document.createElement('div');
+  cursor.className = 'cursor';
+  const ring = document.createElement('div');
+  ring.className = 'cursor-ring';
+  document.body.appendChild(cursor);
+  document.body.appendChild(ring);
+
+  let mx = window.innerWidth / 2;
+  let my = window.innerHeight / 2;
+  let rx = mx, ry = my;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX;
+    my = e.clientY;
+    cursor.style.left = mx + 'px';
+    cursor.style.top  = my + 'px';
+  });
+
+  (function animateRing() {
+    rx += (mx - rx) * 0.13;
+    ry += (my - ry) * 0.13;
+    ring.style.left = rx + 'px';
+    ring.style.top  = ry + 'px';
+    requestAnimationFrame(animateRing);
+  })();
+
+  const interactives = 'a, button, .card, .nav-tab, .btn';
+  document.addEventListener('mouseover', e => {
+    if (e.target.closest(interactives)) {
+      cursor.style.width  = '11px';
+      cursor.style.height = '11px';
+      cursor.style.background = 'var(--cyan)';
+      cursor.style.boxShadow = '0 0 14px var(--cyan), 0 0 28px var(--cyan-glow)';
+      ring.style.width  = '46px';
+      ring.style.height = '46px';
+      ring.style.borderColor = 'rgba(34, 211, 238, 0.55)';
+    }
+  });
+  document.addEventListener('mouseout', e => {
+    if (e.target.closest(interactives)) {
+      cursor.style.width  = '7px';
+      cursor.style.height = '7px';
+      cursor.style.background = 'var(--accent)';
+      cursor.style.boxShadow = '0 0 10px var(--accent), 0 0 20px rgba(192, 132, 252, 0.35)';
+      ring.style.width  = '30px';
+      ring.style.height = '30px';
+      ring.style.borderColor = 'rgba(192, 132, 252, 0.5)';
+    }
+  });
+})();

@@ -672,3 +672,356 @@ body::before {
 
   #tab-templates { padding: 1rem 1.25rem 5rem; }
 }
+
+/* ══════════════════════════════════════
+   FUTURISTIC UPGRADE — Neural Interface
+   ══════════════════════════════════════ */
+
+/* ── New color tokens ── */
+:root {
+  --cyan:          #22D3EE;
+  --cyan-glow:     rgba(34, 211, 238, 0.22);
+  --cyan-subtle:   rgba(34, 211, 238, 0.07);
+  --hot:           #FF0080;
+}
+
+/* ── Darken base background ── */
+:root { --bg: #040508; }
+
+/* ── Scanline overlay ── */
+html::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0, 0, 0, 0.025) 3px,
+    rgba(0, 0, 0, 0.025) 4px
+  );
+  pointer-events: none;
+  z-index: 300;
+}
+
+/* ── Perspective holographic grid ── */
+.bg-scene::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -20%;
+  right: -20%;
+  height: 52%;
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.07) 1px, transparent 1px);
+  background-size: 72px 72px;
+  transform: perspective(500px) rotateX(58deg);
+  transform-origin: bottom center;
+  pointer-events: none;
+  mask-image: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 100%);
+}
+
+/* ── Beam: violet-to-cyan gradient + pulse ── */
+@keyframes beam-pulse {
+  0%, 100% { opacity: 1;   filter: blur(5px);  }
+  50%       { opacity: 0.55; filter: blur(9px); }
+}
+
+.bg-beam {
+  background: linear-gradient(
+    to top,
+    rgba(192, 132, 252, 0.85),
+    rgba(34, 211, 238, 0.4) 35%,
+    rgba(192, 132, 252, 0.12) 65%,
+    transparent
+  );
+  animation: beam-pulse 5s ease-in-out infinite;
+}
+
+/* ── Dual-color central glow ── */
+.bg-glow {
+  background: radial-gradient(
+    circle,
+    rgba(139, 92, 246, 0.38) 0%,
+    rgba(34, 211, 238, 0.12) 45%,
+    transparent 70%
+  );
+}
+
+/* ── Subtle background drift ── */
+@keyframes bg-drift {
+  0%, 100% { transform: scale(1.015) rotate(0.25deg);  }
+  50%       { transform: scale(1)     rotate(-0.25deg); }
+}
+
+.bg-trails {
+  animation: bg-drift 22s ease-in-out infinite;
+  transform-origin: 50% 95%;
+}
+
+/* ── Navbar: gradient border, no solid border ── */
+.navbar {
+  position: relative;
+  border: none;
+  background: rgba(4, 5, 8, 0.78);
+}
+
+.navbar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  padding: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(34, 211, 238, 0.35),
+    rgba(192, 132, 252, 0.45),
+    rgba(34, 211, 238, 0.35)
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ── Active tab: cyan dot indicator ── */
+.nav-tab.active {
+  position: relative;
+}
+
+.nav-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 8px var(--cyan), 0 0 16px var(--cyan-glow);
+}
+
+/* ── Card: cyan border glow on hover ── */
+.card:hover {
+  border-color: rgba(34, 211, 238, 0.25);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(34, 211, 238, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* ── Card: HUD targeting corner brackets ── */
+.card-img-wrap::before,
+.card-img-wrap::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.card-img-wrap::before {
+  top: 10px;
+  left: 10px;
+  border-top: 1.5px solid var(--cyan);
+  border-left: 1.5px solid var(--cyan);
+  box-shadow: -2px -2px 6px var(--cyan-glow);
+}
+
+.card-img-wrap::after {
+  bottom: 10px;
+  right: 10px;
+  border-bottom: 1.5px solid var(--cyan);
+  border-right: 1.5px solid var(--cyan);
+  box-shadow: 2px 2px 6px var(--cyan-glow);
+}
+
+.card:hover .card-img-wrap::before,
+.card:hover .card-img-wrap::after {
+  opacity: 1;
+}
+
+/* ── Card top shimmer: cyan tint ── */
+.card::before {
+  background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.45), transparent);
+}
+
+/* ── Hero: staggered blur-reveal on load ── */
+@keyframes hero-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.hero-content > * {
+  opacity: 0;
+  animation: hero-reveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-content > *:nth-child(1) { animation-delay: 0.05s; }
+.hero-content > *:nth-child(2) { animation-delay: 0.2s;  }
+.hero-content > *:nth-child(3) { animation-delay: 0.38s; }
+.hero-content > *:nth-child(4) { animation-delay: 0.55s; }
+
+/* ── Hero pre-label (code style) ── */
+.hero-pre {
+  font-family: 'Courier New', 'Courier', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  color: var(--cyan);
+  opacity: 0.75;
+  text-transform: uppercase;
+  margin-bottom: -0.25rem;
+}
+
+/* ── Hero title: glow + glitch ── */
+@keyframes glitch {
+  0%, 94%, 100% {
+    text-shadow:
+      0 0 40px rgba(192, 132, 252, 0.45),
+      0 0 80px rgba(34, 211, 238, 0.1);
+    transform: none;
+  }
+  95% {
+    text-shadow:
+      -3px 0 rgba(34, 211, 238, 0.8),
+       3px 0 rgba(255, 0, 128, 0.6),
+       0 0 40px rgba(192, 132, 252, 0.45);
+    transform: translateX(-2px) skewX(-1deg);
+  }
+  96% {
+    text-shadow:
+       3px 0 rgba(34, 211, 238, 0.8),
+      -3px 0 rgba(255, 0, 128, 0.6),
+       0 0 40px rgba(192, 132, 252, 0.45);
+    transform: translateX(2px) skewX(1deg);
+  }
+  97% {
+    text-shadow:
+      0 0 40px rgba(192, 132, 252, 0.45),
+      0 0 80px rgba(34, 211, 238, 0.1);
+    transform: none;
+  }
+}
+
+.hero-title {
+  animation: glitch 9s ease-in-out infinite 2s;
+  text-shadow:
+    0 0 40px rgba(192, 132, 252, 0.45),
+    0 0 80px rgba(34, 211, 238, 0.1);
+}
+
+/* ── Hero badge: cyan border ── */
+.hero-badge {
+  border-color: rgba(34, 211, 238, 0.4);
+  color: var(--cyan);
+}
+
+/* ── Section pre-label ── */
+.section-pre {
+  font-family: 'Courier New', 'Courier', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  color: var(--cyan);
+  opacity: 0.55;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+/* ── Info label: monospace ── */
+.info-label {
+  font-family: 'Courier New', 'Courier', monospace;
+  letter-spacing: 0.18em;
+}
+
+/* ── Info card: top glow sweep on hover ── */
+.info-card {
+  overflow: hidden;
+}
+
+.info-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  transition: left 0.5s ease;
+}
+
+.info-card:hover::before {
+  left: 0;
+}
+
+/* ── Button: cyan accent glow on primary ── */
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), rgba(192, 132, 252, 0.85));
+  box-shadow: 0 0 20px rgba(192, 132, 252, 0.25);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #d8a4ff, var(--accent));
+  box-shadow: 0 0 30px rgba(192, 132, 252, 0.45), 0 0 60px rgba(34, 211, 238, 0.1);
+}
+
+/* ── Outline button: cyan on hover ── */
+.btn-outline:hover {
+  background: var(--cyan);
+  color: #020308;
+  border-color: var(--cyan);
+  box-shadow: 0 0 20px var(--cyan-glow);
+}
+
+/* ── Custom cursor ── */
+@media (pointer: fine) {
+  * { cursor: none !important; }
+}
+
+.cursor {
+  position: fixed;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  pointer-events: none;
+  z-index: 9990;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px var(--accent), 0 0 20px rgba(192, 132, 252, 0.35);
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+  mix-blend-mode: screen;
+}
+
+.cursor-ring {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(192, 132, 252, 0.5);
+  pointer-events: none;
+  z-index: 9989;
+  transform: translate(-50%, -50%);
+  transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease;
+}
+
+/* ── Site footer: cyan tint ── */
+.site-footer {
+  border-color: rgba(34, 211, 238, 0.06);
+}
