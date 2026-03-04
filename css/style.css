@@ -1,0 +1,29 @@
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Tokens ── */
+:root {
+  --bg:           #0D0F1A;
+  --surface:      #13162A;
+  --accent:       #C084FC;
+  --accent-glow:  rgba(192, 132, 252, 0.25);
+  --text:         #F1F5F9;
+  --text-muted:   #94A3B8;
+  --radius:       12px;
+  --font:         'Plus Jakarta Sans', sans-serif;
+}
+
+/* ── Base ── */
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+img { display: block; max-width: 100%; }
+
+a { color: inherit; text-decoration: none; }
