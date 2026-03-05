@@ -189,7 +189,7 @@ function initAnimations() {
   charReveal('.hero-title, .section-heading, .cta-heading');
 
   // Fade ups
-  fadeUp('.hero-label, .hero-sub, .hero-ctas, .hero-badges, .section-label, .contact-sub');
+  fadeUp('.hero-label, .hero-sub, .hero-ctas, .hero-badges, .section-label, .contact-sub, .contact-form');
 
   // Card staggers
   staggerCards('.features-grid, .services-grid, .projects-grid, .process-grid');
@@ -250,36 +250,37 @@ document.fonts.ready.then(() => {
   });
 })();
 
-/* ── Book a Project — Gmail Compose ── */
-function openBookingEmail() {
-  const to = 'nextgenlabstudio@gmail.com';
-  const subject = 'Project Inquiry — NextGenLab.studio';
-  const body =
-`Hello NextGenLab Team,
+/* ── Contact Form Submission (Web3Forms) ── */
+(function () {
+  const form = document.getElementById('contact-form');
+  const success = document.getElementById('form-success');
+  if (!form || !success) return;
 
-I'm interested in working with your studio on a new project. Below are my details:
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('.form-submit');
+    btn.classList.add('loading');
+    btn.disabled = true;
 
-Full Name:
-Email:
-Phone (optional):
-Business / Brand Name:
-Industry:
-Project Type: [ New Website / Redesign / Template Customization ]
-Preferred Template (if any):
-Budget Range:
-Timeline:
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(form)))
+      });
+      const data = await res.json();
 
-Additional Details:
-
-
-Looking forward to hearing from you.
-
-Best regards,`;
-
-  const url = 'https://mail.google.com/mail/?view=cm&fs=1'
-    + '&to=' + encodeURIComponent(to)
-    + '&su=' + encodeURIComponent(subject)
-    + '&body=' + encodeURIComponent(body);
-
-  window.open(url, '_blank');
-}
+      if (data.success) {
+        form.hidden = true;
+        success.hidden = false;
+      } else {
+        alert('Something went wrong. Please try again or email us at contact@nextgenlab.studio');
+      }
+    } catch {
+      alert('Something went wrong. Please try again or email us at contact@nextgenlab.studio');
+    } finally {
+      btn.classList.remove('loading');
+      btn.disabled = false;
+    }
+  });
+})();
