@@ -105,7 +105,7 @@ gsap.registerPlugin(ScrollTrigger);
 /* ── Character Reveal Animation ── */
 function charReveal(selector) {
   document.querySelectorAll(selector).forEach(el => {
-    const split = new SplitType(el, { types: 'chars' });
+    const split = new SplitType(el, { types: 'words, chars' });
 
     gsap.from(split.chars, {
       opacity: 0,
