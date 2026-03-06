@@ -12,7 +12,7 @@ const templates = [
     category: "Beauty",
     description: "Elegant nail salon site with service listings, gallery, booking system, and client testimonials.",
     screenshot: "assets/screenshots/nail-salon.png",
-    link: "https://nail-salon-phi.vercel.app/"
+    link: "https://luxenailsstudio.netlify.app"
   },
   {
     name: "Luminary Estates",
