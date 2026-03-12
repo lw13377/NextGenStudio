@@ -1003,6 +1003,69 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ══════════════════════════════════════
+   BOOKING
+   ══════════════════════════════════════ */
+#booking {
+  position: relative;
+  z-index: 1;
+  padding: 8rem 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+#booking::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(ellipse, rgba(147, 51, 234, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.booking-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.booking-sub {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 500px;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.booking-wrapper {
+  width: 100%;
+  max-width: 800px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(220, 90, 219, 0.2);
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 0 40px rgba(220, 90, 219, 0.08), 0 0 80px rgba(147, 51, 234, 0.05);
+  overflow: hidden;
+  padding: 1.5rem;
+}
+
+.booking-wrapper iframe {
+  min-height: 600px;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  #booking { padding: 5rem 0; }
+  .booking-wrapper { padding: 0.75rem; }
+  .booking-wrapper iframe { min-height: 500px; }
+}
+
+/* ══════════════════════════════════════
    FOOTER
    ══════════════════════════════════════ */
 .site-footer {
