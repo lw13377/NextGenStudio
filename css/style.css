@@ -1057,6 +1057,7 @@ a { color: inherit; text-decoration: none; }
 .booking-wrapper iframe {
   min-height: 600px;
   border-radius: 8px;
+  filter: invert(0.88) hue-rotate(200deg) saturate(1.6) brightness(0.9) contrast(0.95);
 }
 
 @media (max-width: 768px) {
