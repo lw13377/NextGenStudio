@@ -19,7 +19,7 @@ const templates = [
     category: "Real Estate",
     description: "Ultra-luxury real estate site with property search, listings grid, and agent profiles.",
     screenshot: "assets/screenshots/real-estate.png",
-    link: "https://real-estate-icx66zd0w-lw13377s-projects.vercel.app/"
+    link: "https://real-estate-lw13377s-projects.vercel.app/"
   },
   {
     name: "Photography",
@@ -111,6 +111,34 @@ const templates = [
     description: "Professional landscaping and lawn care site with seasonal services, project portfolio, and free estimate booking.",
     screenshot: "assets/screenshots/landscaping.png",
     link: "https://greenscape-pro-nu.vercel.app"
+  },
+  {
+    name: "Elite Auto Detailing",
+    category: "Auto Detailing",
+    description: "Premium auto detailing site with service packages, before/after gallery, booking, and client reviews.",
+    screenshot: "assets/screenshots/auto-detailing.png",
+    link: "https://auto-detailing-eta.vercel.app"
+  },
+  {
+    name: "Sharp Fade Barbershop",
+    category: "Barbershop",
+    description: "Bold barbershop site with service menu, barber profiles, online booking, and gallery of fresh cuts.",
+    screenshot: "assets/screenshots/barbershop.png",
+    link: "https://barbershop-ten-mu.vercel.app"
+  },
+  {
+    name: "Pampered Paws",
+    category: "Pet Grooming",
+    description: "Friendly pet grooming and daycare site with service pricing, gallery, booking form, and testimonials.",
+    screenshot: "assets/screenshots/pet-grooming.png",
+    link: "https://pet-grooming-six.vercel.app"
+  },
+  {
+    name: "SparkleClean Pro",
+    category: "Cleaning Services",
+    description: "Professional cleaning service site with pricing plans, service checklist, gallery, and free quote booking.",
+    screenshot: "assets/screenshots/cleaning.png",
+    link: "https://sparkleclean-pro.vercel.app"
   }
 ];
 
@@ -120,19 +148,18 @@ function renderProjects() {
   if (!grid) return;
 
   templates.forEach(t => {
-    const card = document.createElement('article');
+    const card = document.createElement('a');
     card.className = 'project-card';
+    card.href = t.link;
+    card.target = '_blank';
+    card.rel = 'noopener';
     card.innerHTML = `
       <div class="project-img">
         <img src="${t.screenshot}" alt="${t.name} template preview" loading="lazy" />
-        <span class="project-tag">${t.category}</span>
       </div>
       <div class="project-body">
         <h3 class="project-title">${t.name}</h3>
         <p class="project-desc">${t.description}</p>
-        <a href="${t.link}" class="project-link" target="_blank" rel="noopener">
-          View Live Site &rarr;
-        </a>
       </div>
     `;
     grid.appendChild(card);
