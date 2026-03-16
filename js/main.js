@@ -25,7 +25,7 @@ const templates = [
     name: "Photography",
     category: "Photography",
     description: "A striking portfolio template for photographers — bold imagery, clean galleries, and seamless browsing.",
-    screenshot: "assets/screenshots/photography.png",
+    screenshot: "assets/screenshots/photography-new.png",
     link: "https://photographer-gules.vercel.app/"
   },
   {
@@ -69,6 +69,20 @@ const templates = [
     description: "Warm and friendly daycare site with programs, enrollment info, and parent testimonials.",
     screenshot: "assets/screenshots/daycare.png",
     link: "https://daycare-vert.vercel.app/"
+  },
+  {
+    name: "Thread Culture",
+    category: "Clothing & Fashion",
+    description: "Modern clothing brand site with bold visuals, seasonal collections, shopping categories, and new drops.",
+    screenshot: "assets/screenshots/thread-culture.png",
+    link: "https://thread-culture-three.vercel.app"
+  },
+  {
+    name: "Camp Horizon",
+    category: "Summer Camp",
+    description: "Adventurous summer camp site with activities, gallery, daily schedule, pricing tiers, and registration.",
+    screenshot: "assets/screenshots/summer-camp.png",
+    link: "https://summer-camp-smoky.vercel.app"
   }
 ];
 
