@@ -139,6 +139,13 @@ const templates = [
     description: "Professional cleaning service site with pricing plans, service checklist, gallery, and free quote booking.",
     screenshot: "assets/screenshots/cleaning.png",
     link: "https://sparkleclean-pro.vercel.app"
+  },
+  {
+    name: "Everlasting Moments",
+    category: "Wedding Planning",
+    description: "Elegant wedding planner site with service packages, portfolio gallery, pricing tiers, and consultation booking.",
+    screenshot: "assets/screenshots/wedding-planner.png",
+    link: "https://wedding-planner-three-self.vercel.app"
   }
 ];
 
