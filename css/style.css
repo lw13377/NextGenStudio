@@ -582,17 +582,16 @@ a { color: inherit; text-decoration: none; }
 }
 
 .projects-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
   text-align: left;
-  max-width: 1060px;
+  max-width: 1200px;
   margin: 0 auto;
-  justify-content: center;
 }
 
 .projects-grid .project-card {
-  width: calc((100% - 3rem) / 3);
+  width: 100%;
 }
 
 .project-card {
@@ -1135,8 +1134,8 @@ a { color: inherit; text-decoration: none; }
   .process-grid  { grid-template-columns: repeat(2, 1fr); }
   .features-grid { grid-template-columns: repeat(2, 1fr); }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
-  .projects-grid .project-card {
-    width: calc((100% - 4rem) / 3);
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
   .stats-grid    { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
   .footer-grid   { grid-template-columns: 1fr; gap: 2rem; }
@@ -1147,8 +1146,8 @@ a { color: inherit; text-decoration: none; }
 
   .form-row { grid-template-columns: 1fr; }
 
-  .projects-grid .project-card {
-    width: calc((100% - 1rem) / 2);
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   #hero { padding: 7rem 0 4rem; }
