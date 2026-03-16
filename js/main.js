@@ -83,6 +83,20 @@ const templates = [
     description: "Adventurous summer camp site with activities, gallery, daily schedule, pricing tiers, and registration.",
     screenshot: "assets/screenshots/summer-camp.png",
     link: "https://summer-camp-smoky.vercel.app"
+  },
+  {
+    name: "Apex Athletics",
+    category: "Gym & Fitness",
+    description: "High-energy gym site with class schedules, trainer profiles, membership plans, and community gallery.",
+    screenshot: "assets/screenshots/gym.png",
+    link: "https://untitled3-ten.vercel.app"
+  },
+  {
+    name: "ProFlow Plumbing & HVAC",
+    category: "Plumbing & HVAC",
+    description: "Professional plumbing and HVAC service site with 24/7 emergency booking, service areas, and special offers.",
+    screenshot: "assets/screenshots/plumbing.png",
+    link: "https://proflow-plumbing-six.vercel.app"
   }
 ];
 
