@@ -97,6 +97,20 @@ const templates = [
     description: "Professional plumbing and HVAC service site with 24/7 emergency booking, service areas, and special offers.",
     screenshot: "assets/screenshots/plumbing.png",
     link: "https://proflow-plumbing-six.vercel.app"
+  },
+  {
+    name: "Luxe Aesthetics",
+    category: "Plastic Surgery",
+    description: "Elegant cosmetic clinic site with procedure showcase, surgeon profile, patient testimonials, and consultation booking.",
+    screenshot: "assets/screenshots/plastic-surgery.png",
+    link: "https://plasticsurgeon.vercel.app"
+  },
+  {
+    name: "GreenScape Pro",
+    category: "Landscaping",
+    description: "Professional landscaping and lawn care site with seasonal services, project portfolio, and free estimate booking.",
+    screenshot: "assets/screenshots/landscaping.png",
+    link: "https://greenscape-pro-nu.vercel.app"
   }
 ];
 
