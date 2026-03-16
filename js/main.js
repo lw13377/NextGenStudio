@@ -267,8 +267,23 @@ function initAnimations() {
   // Fade ups
   fadeUp('.hero-label, .hero-sub, .hero-ctas, .hero-badges, .section-label, .contact-sub, .contact-form');
 
-  // Card staggers
-  staggerCards('.features-grid, .services-grid, .projects-grid, .process-grid');
+  // Card staggers (exclude projects grid — animate each card individually for alignment)
+  staggerCards('.features-grid, .services-grid, .process-grid');
+
+  // Projects grid: fade each card on its own scroll trigger so rows stay level
+  document.querySelectorAll('.projects-grid .project-card').forEach(card => {
+    gsap.from(card, {
+      opacity: 0,
+      y: 40,
+      duration: 0.6,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: card,
+        start: 'top 90%',
+        once: true
+      }
+    });
+  });
 
   // Counters
   animateCounters();
