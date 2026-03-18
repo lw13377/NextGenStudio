@@ -146,6 +146,13 @@ const templates = [
     description: "Elegant wedding planner site with service packages, portfolio gallery, pricing tiers, and consultation booking.",
     screenshot: "assets/screenshots/wedding-planner.png",
     link: "https://wedding-planner-three-self.vercel.app"
+  },
+  {
+    name: "LUMIÈRE Med Spa",
+    category: "Med Spa",
+    description: "Luxury med spa site with treatment showcase, skin quiz, membership tiers, booking calendar, and gift cards.",
+    screenshot: "assets/screenshots/med-spa.png",
+    link: "https://lumiereclinic.netlify.app"
   }
 ];
 
