@@ -153,6 +153,20 @@ const templates = [
     description: "Luxury med spa site with treatment showcase, skin quiz, membership tiers, booking calendar, and gift cards.",
     screenshot: "assets/screenshots/med-spa.png",
     link: "https://lumiereclinic.netlify.app"
+  },
+  {
+    name: "GreenLight Driving Academy",
+    category: "Driving School",
+    description: "Professional driving school site with program tiers, pricing plans, student reviews, FAQ, and enrollment form.",
+    screenshot: "assets/screenshots/driving-school.png",
+    link: "https://greenlight-driving-academy.vercel.app"
+  },
+  {
+    name: "PULSE Festival",
+    category: "Music & Events",
+    description: "Underground music festival site with artist lineup, stage details, ticket tiers, countdown timer, and bold typography.",
+    screenshot: "assets/screenshots/music-festival.png",
+    link: "https://pulse-festival.vercel.app"
   }
 ];
 
@@ -181,6 +195,22 @@ function renderProjects() {
 }
 
 renderProjects();
+
+
+/* ── Spotlight Border Effect ── */
+function initSpotlightCards() {
+  const cards = document.querySelectorAll('.project-card');
+  cards.forEach(card => {
+    card.addEventListener('pointermove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--card-x', x + 'px');
+      card.style.setProperty('--card-y', y + 'px');
+    });
+  });
+}
+initSpotlightCards();
 
 /* ── GSAP + ScrollTrigger Setup ── */
 gsap.registerPlugin(ScrollTrigger);
